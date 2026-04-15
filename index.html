@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trusted Hosts</title>
+
+  <!-- Globe.gl -->
+  <script src="https://unpkg.com/globe.gl"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1115;
+      color: white;
+    }
+
+    header {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    header a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    #globeViz {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 30%;
+      left: 40px;
+      max-width: 500px;
+      z-index: 5;
+    }
+
+    .overlay h2 {
+      font-size: 42px;
+      font-weight: 500;
+    }
+
+    .overlay p {
+      margin-top: 15px;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Trusted Hosts</h1>
+  <nav>
+    <a href="#">Join</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<div class="overlay">
+  <h2>Trusted people.<br>On the ground.</h2>
+  <p>
+    Find reliable local hosts to support your business visits—communication, logistics, and more.
+  </p>
+  <a class="btn" href="#">Find a Host</a>
+</div>
+
+<div id="globeViz"></div>
+
+<script>
+  const hosts = [
+    {
+      id: 1,
+      lat: -30.0346,
+      lng: -51.2177,
+      name: "Porto Alegre Host",
+      description: "Business support & local assistance"
+    }
+  ];
+
+  const globe = Globe()
+    (document.getElementById('globeViz'))
+    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+    .backgroundColor('#0f1115')
+
+    // ✅ BIGGER + MOBILE-FRIENDLY POINTS
+    .pointsData(hosts)
+    .pointLat(d => d.lat)
+    .pointLng(d => d.lng)
+    .pointAltitude(0.08)
+    .pointRadius(2.5)
+    .pointResolution(20)
+    .pointColor(() => '#ffffff')
+
+    // ✅ ADD LABEL (EASY TAP TARGET)
+    .labelsData(hosts)
+    .labelLat(d => d.lat)
+    .labelLng(d => d.lng)
+    .labelText(() => "●")
+    .labelSize(1.5)
+    .labelColor(() => '#ffffff')
+
+    // ✅ CLICK ACTION (BOTH WORK)
+    .onPointClick(d => {
+      window.location.href = `host.html?id=${d.id}`;
+    })
+    .onLabelClick(d => {
+      window.location.href = `host.html?id=${d.id}`;
+    })
+
+    // ✅ GLOW RING
+    .ringsData(hosts)
+    .ringLat(d => d.lat)
+    .ringLng(d => d.lng)
+    .ringMaxRadius(6)
+    .ringPropagationSpeed(1.2)
+    .ringRepeatPeriod(1200);
+
+  // ✅ SPINNING
+  globe.controls().autoRotate = true;
+  globe.controls().autoRotateSpeed = 0.6;
+
+  // ✅ START POSITION
+  globe.pointOfView({ lat: -30, lng: -51, altitude: 2 }, 2000);
+</script></body>
+</html>

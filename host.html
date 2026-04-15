@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trusted Host</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1115;
+      color: white;
+    }
+
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid #222;
+    }
+
+    header a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .top {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1f2937;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    .verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #4ade80;
+    }
+
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #161a22;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .review {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #222;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .cta-box {
+      position: sticky;
+      top: 40px;
+      background: #161a22;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .price {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      background: white;
+      color: black;
+      padding: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Back</a>
+</header>
+
+<div class="container">
+
+  <div class="top">
+    <img id="avatar" class="avatar"/>
+    <div>
+      <h1 id="name"></h1>
+      <div class="subtitle" id="location"></div>
+
+      <div class="verified">
+        ✔ Verified Trusted Host
+      </div>
+
+      <div class="stats">
+        <div id="rating"></div>
+        <div id="jobs"></div>
+        <div id="response"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div>
+
+      <div class="card">
+        <h3>About</h3>
+        <p id="about"></p>
+      </div>
+
+      <div class="card">
+        <h3>Services</h3>
+        <p id="services"></p>
+      </div>
+
+      <div class="card">
+        <h3>Reviews</h3>
+
+        <div class="review">
+          “Very professional and reliable. Made our visit smooth and efficient.”
+        </div>
+
+        <div class="review">
+          “Excellent support during meetings and logistics. Highly recommended.”
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="cta-box">
+      <div class="price" id="price"></div>
+
+      <a id="contactBtn" class="btn">Request Contact</a>
+
+      <div class="small">
+        Usually responds within a few hours
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const data = {
+    1: {
+      name: "Armijn",
+      location: "Porto Alegre, Brazil",
+      avatar: "images/profile.png",
+      about: "I support international business visitors with meetings, logistics, and local coordination. My goal is to make your time efficient and stress-free.",
+      services: "Business meetings, site visits, transport, logistics, communication",
+      price: "From $200 / day",
+      rating: "⭐ 5.0",
+      jobs: "32 visits completed",
+      response: "Responds quickly",
+      email: "armijnvandijk@gmail.com"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const host = data[id];
+
+  if (host) {
+    document.getElementById("name").innerText = host.name;
+    document.getElementById("location").innerText = host.location;
+    document.getElementById("avatar").src = host.avatar;
+    document.getElementById("about").innerText = host.about;
+    document.getElementById("services").innerText = host.services;
+    document.getElementById("price").innerText = host.price;
+    document.getElementById("rating").innerText = host.rating;
+    document.getElementById("jobs").innerText = host.jobs;
+    document.getElementById("response").innerText = host.response;
+    document.getElementById("contactBtn").href = `mailto:${host.email}`;
+  }
+</script>
+
+</body>
+</html>
