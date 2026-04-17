@@ -12,8 +12,9 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1115;
+      background: #1a1f2e;
       color: white;
+      overflow: hidden;
     }
 
     header {
@@ -23,11 +24,18 @@
       justify-content: space-between;
       padding: 20px 40px;
       z-index: 10;
+      box-sizing: border-box;
     }
 
     header h1 {
       font-size: 18px;
       font-weight: 500;
+    }
+
+    .logo {
+      height: 120px;
+      width: auto;
+      display: block;
     }
 
     header a {
@@ -37,7 +45,7 @@
     }
 
     #globeViz {
-      width: 100vw;
+      width: 100%;
       height: 100vh;
     }
 
@@ -76,10 +84,10 @@
 <body>
 
 <header>
-  <h1>Trusted Hosts</h1>
+  <img src="images/logo.jpeg" alt="Trusted Hosts" class="logo">
   <nav>
     <a href="#">Join</a>
-    <a href="#">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -88,7 +96,7 @@
   <p>
     Find reliable local hosts to support your business visits—communication, logistics, and more.
   </p>
-  <a class="btn" href="#">Find a Host</a>
+  <a class="btn" href="host.html?id=1">Find a Host</a>
 </div>
 
 <div id="globeViz"></div>
@@ -107,7 +115,7 @@
   const globe = Globe()
     (document.getElementById('globeViz'))
     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
-    .backgroundColor('#0f1115')
+    .backgroundColor('#1a1f2e')
 
     // ✅ BIGGER + MOBILE-FRIENDLY POINTS
     .pointsData(hosts)
