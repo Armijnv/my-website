@@ -169,8 +169,8 @@ button:hover {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
 }
-
 .subtitle {
   color: #aaa;
   margin-top: 5px;
@@ -253,4 +253,12 @@ p {
 }
 .form-group {
   margin-bottom: 20px;
+}
+/* FORCE avatar styling */
+img.avatar {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block;
 }
