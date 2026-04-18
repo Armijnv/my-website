@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-  <style>
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -48,13 +48,12 @@
     }
 
     #globeViz {
-       width: 100%;
-       height: calc(100vh - 80px);
-        margin-top: 80px;
-       }
+  width: 100%;
+  height: 100vh;
+}
     .overlay {
       position: absolute;
-      top: 10%;
+      top: 140px;
       left: 40px;
       max-width: 500px;
       z-index: 5;
@@ -131,6 +130,12 @@
 .menu a {
   display: flex;
   align-items: center;
+}
+@media (max-width: 600px) {
+  .overlay {
+    top: 110px;
+    left: 20px;
+  }
 }
   </style>
 </head>
