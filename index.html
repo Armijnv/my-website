@@ -90,6 +90,37 @@
   .logo {
     margin: 0;
   }
+}.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
   </style>
 </head>
@@ -99,10 +130,12 @@
 <header>
   <img src="images/logo.jpeg" alt="Trusted Hosts" class="logo">
   <nav>
-  <a href="index.html">Home</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://wa.me/+5551997783369" target="_blank">WhatsApp</a>
-  <a href="https://instagram.com/hosttrusted" target="_blank">Instagram</a>
+  <div class="menu-toggle">☰</div>
+
+  <div class="menu">
+    <a href="#">Join</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 </header>
 
@@ -171,5 +204,14 @@
 
   // ✅ START POSITION
   globe.pointOfView({ lat: -30, lng: -51, altitude: 2 }, 2000);
-</script></body>
+</script>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+</body>
 </html>
