@@ -47,7 +47,7 @@ nav a {
 
 nav a:hover {
   color: white;
-
+}
 /* Globe container */
 #globeViz {
   width: 100%;
@@ -165,11 +165,10 @@ button:hover {
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
 }
 .subtitle {
   color: #aaa;
@@ -235,11 +234,12 @@ button:hover {
   .grid {
     grid-template-columns: 1fr;
   }
-}
+
   nav {
     flex-wrap: wrap;
     gap: 10px;
   }
+}
 }
 h2 {
   font-size: 32px;
@@ -253,12 +253,4 @@ p {
 }
 .form-group {
   margin-bottom: 20px;
-}
-/* FORCE avatar styling */
-img.avatar {
-  width: 120px !important;
-  height: 120px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  display: block;
 }
