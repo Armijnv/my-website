@@ -178,8 +178,10 @@
 
   const globe = Globe()
     (document.getElementById('globeViz'))
-    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
     .backgroundColor('#1a1f2e')
+    .atmosphereColor('#3a7bd5')
+.atmosphereAltitude(0.25)
 
     // ✅ BIGGER + MOBILE-FRIENDLY POINTS
     .pointsData(hosts)
