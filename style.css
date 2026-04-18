@@ -29,7 +29,7 @@ header {
 }
 
  .logo {
-  height: 80px;
+  height: 100px;
   width: auto;
 }
 
@@ -253,4 +253,33 @@ p {
 }
 .form-group {
   margin-bottom: 20px;
+}
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Desktop */
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }

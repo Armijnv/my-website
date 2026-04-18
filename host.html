@@ -16,12 +16,16 @@
     <img src="images/logo.jpeg" alt="Trusted Hosts" class="logo">
   </a>
 
-  <nav>
+  <nav class="nav">
+  <div class="menu-toggle">☰</div>
+
+  <div class="menu">
     <a href="index.html">Home</a>
     <a href="contact.html">Contact</a>
     <a href="https://wa.me/+5551997783369" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/hosttrusted" target="_blank">Instagram</a>
-  </nav>
+  </div>
+</nav>
 </header>
 
 <main class="container">
@@ -123,6 +127,14 @@
   if (!host) {
     document.body.innerHTML = "<h2 style='padding:40px;'>Host not found</h2>";
   }
+</script>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
 </script>
 </body>
 </html>
