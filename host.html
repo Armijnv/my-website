@@ -134,12 +134,17 @@
   }
 </script>
 <script>
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menu');
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    }
   });
+</script>);
 <footer class="footer">
   <div class="footer-content">
     <p>© 2026 Trusted Hosts</p>
