@@ -446,3 +446,46 @@ main {
 .arrow:hover {
   color: #ccc;
 }
+/* Apartment list */
+.apartment-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.apartment-card {
+  text-decoration: none;
+  color: white;
+  background: #22283a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.apartment-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.apartment-card h3 {
+  padding: 10px 15px 0;
+}
+
+.apartment-card p {
+  padding: 0 15px 15px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.apartment-card:hover {
+  transform: scale(1.02);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .apartment-list {
+    grid-template-columns: 1fr;
+  }
+}
