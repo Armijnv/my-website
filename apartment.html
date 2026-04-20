@@ -65,7 +65,7 @@
       Located near restaurants, cafes, and business districts.
       Safe and well-connected area.
     </p>
-    <div class="card">
+  </div>
   <h3>Amenities</h3>
 
   <div class="amenities">
@@ -120,6 +120,9 @@
     </div>
   </div>
 </footer>
+<div id="fullscreen" class="fullscreen">
+  <img id="fullscreen-img" src="">
+</div>
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.menu');
@@ -178,20 +181,22 @@
   });
 </script>
 <script>
-  const fullscreen = document.getElementById("fullscreen");
-  const fullscreenImg = document.getElementById("fullscreen-img");
+  document.addEventListener("DOMContentLoaded", function () {
+    const slide = document.getElementById("slide");
+    const fullscreen = document.getElementById("fullscreen");
+    const fullscreenImg = document.getElementById("fullscreen-img");
 
-  slide.addEventListener("click", () => {
-    fullscreen.classList.add("active");
-    fullscreenImg.src = slide.src;
-  });
+    if (slide && fullscreen && fullscreenImg) {
+      slide.addEventListener("click", () => {
+        fullscreen.classList.add("active");
+        fullscreenImg.src = slide.src;
+      });
 
-  fullscreen.addEventListener("click", () => {
-    fullscreen.classList.remove("active");
+      fullscreen.addEventListener("click", () => {
+        fullscreen.classList.remove("active");
+      });
+    }
   });
 </script>
-<div id="fullscreen" class="fullscreen">
-  <img id="fullscreen-img" src="">
-</div>
 </body>
 </html>
