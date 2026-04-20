@@ -20,7 +20,7 @@
 
   <div class="menu">
     <a href="index.html">Home</a>
-    <a href="host.html?id=1.html">Host</a>
+    <a href="host.html?id=1">Host</a>
     <a href="https://wa.me/+5551997783369" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/hosttrusted" target="_blank">Instagram</a>
   </div>
@@ -70,5 +70,13 @@
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
