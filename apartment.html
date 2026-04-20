@@ -157,7 +157,11 @@
   const id = params.get("id");
 
   const apt = apartments[id];
-
+if (!apt) {
+  document.querySelector("main").innerHTML = `
+    <h2 style="padding:40px;">Apartment not found</h2>
+  `;
+}
   let images = [];
   let current = 0;
 
