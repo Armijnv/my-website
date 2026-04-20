@@ -224,10 +224,20 @@
 
   // ✅ SPINNING
   globe.controls().autoRotate = true;
-  globe.controls().autoRotateSpeed = 0.6;
+  globe.controls().autoRotateSpeed = 0.2;
 
   // ✅ START POSITION
   globe.pointOfView({ lat: -30, lng: -51, altitude: 2 }, 2000);
+const globeEl = document.getElementById('globeViz');
+
+globeEl.addEventListener('mouseenter', () => {
+  globe.controls().autoRotate = false;
+});
+
+globeEl.addEventListener('mouseleave', () => {
+  globe.controls().autoRotate = true;
+});
+
 </script>
 <script>
   const toggle = document.querySelector('.menu-toggle');
