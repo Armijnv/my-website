@@ -117,7 +117,13 @@
   </div>
 </footer>
 <div id="fullscreen" class="fullscreen">
+
+  <div class="arrow left">&#10094;</div>
+
   <img id="fullscreen-img" src="">
+
+  <div class="arrow right">&#10095;</div>
+
 </div>
 <script>
   const toggle = document.querySelector('.menu-toggle');
@@ -146,24 +152,27 @@
 </script>
 <script>
   const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+  const id = params.get("id");
 
-const apt = apartments[id];
+  const apt = apartments[id];
 
-if (apt) {
-  document.getElementById("apt-name").innerText = apt.name;
-  document.getElementById("apt-subtitle").innerText = apt.subtitle;
-  document.getElementById("apt-about").innerText = apt.about;
-  document.getElementById("apt-price").innerText = apt.price;
-
-  images = apt.images;
-}if (images.length > 0) {
-  slide.src = images[0];
-}
   let images = [];
-
   let current = 0;
+
   const slide = document.getElementById("slide");
+
+  if (apt) {
+    document.getElementById("apt-name").innerText = apt.name;
+    document.getElementById("apt-subtitle").innerText = apt.subtitle;
+    document.getElementById("apt-about").innerText = apt.about;
+    document.getElementById("apt-price").innerText = apt.price;
+
+    images = apt.images;
+
+    if (images.length > 0) {
+      slide.src = images[0];
+    }
+  }
 
   function showImage(index) {
     slide.src = images[index];
@@ -182,24 +191,21 @@ if (apt) {
   // Auto rotate
   let interval = setInterval(nextImage, 3000);
 
-  // Swipe detection
+  // Swipe
   let startX = 0;
 
   slide.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
-    clearInterval(interval); // pause on interaction
+    clearInterval(interval);
   });
 
   slide.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
 
-    if (startX - endX > 50) {
-      nextImage(); // swipe left
-    } else if (endX - startX > 50) {
-      prevImage(); // swipe right
-    }
+    if (startX - endX > 50) nextImage();
+    else if (endX - startX > 50) prevImage();
 
-    interval = setInterval(nextImage, 3000); // resume
+    interval = setInterval(nextImage, 3000);
   });
 </script>
 <script>
@@ -208,15 +214,39 @@ if (apt) {
     const fullscreen = document.getElementById("fullscreen");
     const fullscreenImg = document.getElementById("fullscreen-img");
 
+    const leftArrow = document.querySelector(".arrow.left");
+    const rightArrow = document.querySelector(".arrow.right");
+
     if (slide && fullscreen && fullscreenImg) {
+
+      // OPEN
       slide.addEventListener("click", () => {
         fullscreen.classList.add("active");
-        fullscreenImg.src = slide.src;
+        fullscreenImg.src = images[current];
       });
 
+      // CLOSE
       fullscreen.addEventListener("click", () => {
         fullscreen.classList.remove("active");
       });
+
+      // ⬅️ LEFT
+      if (leftArrow) {
+        leftArrow.addEventListener("click", (e) => {
+          e.stopPropagation();
+          current = (current - 1 + images.length) % images.length;
+          fullscreenImg.src = images[current];
+        });
+      }
+
+      // ➡️ RIGHT
+      if (rightArrow) {
+        rightArrow.addEventListener("click", (e) => {
+          e.stopPropagation();
+          current = (current + 1) % images.length;
+          fullscreenImg.src = images[current];
+        });
+      }
     }
   });
 </script>

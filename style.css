@@ -424,3 +424,25 @@ main {
 .fullscreen.active {
   display: flex;
 }
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.arrow:hover {
+  color: #ccc;
+}
