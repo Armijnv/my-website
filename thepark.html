@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trusted Hosts</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="images/logo.jpeg" alt="Trusted Hosts" class="logo">
+  </a>
+
+  <nav class="nav">
+    <div class="menu-toggle">☰</div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+
+      <a href="https://wa.me/+5551997783369" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://instagram.com/hosttrusted" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Page Title</h1>
+  <p>This is your clean starting page.</p>
+</main>
+
+<footer class="footer">
+  <p>© 2026 Trusted Hosts. All rights reserved.</p>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
