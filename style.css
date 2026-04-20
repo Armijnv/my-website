@@ -356,3 +356,22 @@ main {
 .apartment main {
   max-width: 900px;
 }
+.apartment-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.slideshow img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .apartment-top {
+    grid-template-columns: 1fr;
+  }
+}

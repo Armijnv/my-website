@@ -43,11 +43,12 @@
   <p class="subtitle">Comfortable stay in a central location</p>
 
   <!-- Slideshow -->
+  <div class="apartment-top">
+
   <div class="slideshow">
     <img id="slide" src="images/apt1-1.jpg" alt="Apartment">
   </div>
 
-  <!-- Description -->
   <div class="card">
     <h3>About this place</h3>
     <p>
@@ -56,6 +57,7 @@
     </p>
   </div>
 
+</div>
   <!-- Area -->
   <div class="card">
     <h3>Neighborhood</h3>
@@ -97,9 +99,11 @@
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.menu');
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  }
 </script>
 <script>
   const images = [
