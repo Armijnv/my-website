@@ -231,9 +231,10 @@
 
       // OPEN
       slide.addEventListener("click", () => {
-        fullscreen.classList.add("active");
-        fullscreenImg.src = images[current];
-      });
+  fullscreen.classList.add("active");
+  current = images.indexOf(slide.src);
+  fullscreenImg.src = slide.src;
+});
 
       // CLOSE
       fullscreen.addEventListener("click", () => {
