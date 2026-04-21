@@ -41,14 +41,13 @@
     <div>
       <h1 id="name"></h1>
       <div class="subtitle" id="location"></div>
-
+      <div class="recommended" id="recommended"></div>
       <div class="verified">
         ✔ Verified Trusted Host
       </div>
 
       <div class="stats">
-        <div id="rating"></div>
-        <div id="jobs"></div>
+        
         <div id="response"></div>
       </div>
     </div>
@@ -103,11 +102,14 @@ const data = {
     name: "Armijn",
     location: "Porto Alegre, Brazil",
     avatar: "images/me3.png",
+    recommended: {
+    name: "Armijn",
+    location: "Site owner"
+  },
     about: "I support international business visitors with meetings, logistics, and local coordination. My goal is to make your time efficient and stress-free.",
     services: "Business meetings, site visits, transport, logistics, communication",
     price: "From $200 / day",
-    rating: "⭐ 5.0",
-    jobs: "32 visits completed",
+    
     response: "Responds quickly",
     email: "armijnvandijk@gmail.com"
   }
@@ -121,12 +123,13 @@ const host = data[id];
 if (host) {
   document.getElementById("name").innerText = host.name;
   document.getElementById("location").innerText = host.location;
-  document.getElementById("avatar").src = host.avatar;
+  if (host.recommended) {
+  document.getElementById("recommended").innerText =
+    `Recommended by ${host.recommended.name} (${host.recommended.location})`;
+}document.getElementById("avatar").src = host.avatar;
   document.getElementById("about").innerText = host.about;
   document.getElementById("services").innerText = host.services;
   document.getElementById("price").innerText = host.price;
-  document.getElementById("rating").innerText = host.rating;
-  document.getElementById("jobs").innerText = host.jobs;
   document.getElementById("response").innerText = host.response;
   document.getElementById("contactBtn").href = `mailto:${host.email}`;
 } else {
