@@ -136,6 +136,7 @@ const id = params.get("id");
 const host = data[id];
 
 if (host) {
+  document.title = `${host.name} - Interpreter in ${host.location}`;
   document.getElementById("name").innerText = host.name;
   document.getElementById("location").innerText = host.location;
   if (host.recommended) {
