@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trusted Hosts</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="images/logo.jpeg" class="logo">
+  </a>
+
+  <nav class="nav">
+    <div class="menu-toggle">☰</div>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="hosts.html">Hosts</a>
+      <a href="apartments.html">Apartments</a>
+      <a href="contact.html">Contact</a>
+
+      <a href="https://wa.me/+5551997783369" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://instagram.com/hosttrusted" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <h1>Trusted Hosts</h1>
+  <p class="subtitle">Find reliable local partners</p>
+
+  <div id="hosts-list" class="hosts-grid"></div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2026 Trusted Hosts</p>
+  </div>
+</footer>
+
+<script>
+const hosts = {
+  1: {
+    name: "Armijn",
+    location: "Porto Alegre, Brazil",
+    avatar: "images/me3.png",
+    recommended: {
+      name: "Armijn",
+      location: "Site owner"
+    }
+  },
+
+  2: {
+    name: "Second Host",
+    location: "São Paulo, Brazil",
+    avatar: "images/default.png",
+    recommended: {
+      name: "Armijn",
+      location: "Trusted Host"
+    }
+  }
+};
+
+const container = document.getElementById("hosts-list");
+
+Object.keys(hosts).forEach(id => {
+  const host = hosts[id];
+
+  const card = document.createElement("a");
+  card.href = `host.html?id=${id}`;
+  card.className = "host-card";
+
+  card.innerHTML = `
+    <img src="${host.avatar}" class="host-avatar">
+    <h3>${host.name}</h3>
+    <p>${host.location}</p>
+    <div class="recommended">
+      Recommended by ${host.recommended.name}
+    </div>
+  `;
+
+  container.appendChild(card);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  }
+});
+</script>
+
+</body>
+</html>
