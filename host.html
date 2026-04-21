@@ -112,8 +112,23 @@ const data = {
     
     response: "Responds quickly",
     email: "armijnvandijk@gmail.com"
+  },
+  2: {
+    name: "Luciana",
+    location: "Porto Alegre, Brazil",
+    avatar: "images/lu1.jpeg",
+    recommended: {
+      name: "Armijn",
+      location: "Porto Alegre, Brazil"
+    },
+    about: "I provide excellent hospitality and local knowledge for international visitors.",
+    services: "Site visits, tours, local recommendations",
+    price: "From $250 / day",
+    response: "Responds quickly",
+    email: "loevandijk@gmail.com"
   }
 };
+
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
