@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://homeinthe.city",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://homeinthe.city/:path*",
       "permanent": true
